@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import Users from './components/users';
-import SignUpForm from './components/signup.js';
-import GambleForm from './components/gamble.js'
 
-import * as SignUp from './actions/signup.js';
+import SignUpForm from './components/signup';
+import GambleForm from './components/gamble'
+
+import Users from './components/users';
+import Live from './components/live';
+
+import * as SignUp from './actions/signup';
 
 class App extends Component {
 	constructor(props) {
@@ -44,7 +47,7 @@ class App extends Component {
 	
 	componentDidMount() {
 		this.updateInfo();
-		let RutineCheck = setInterval(this.updateInfo, 10000);
+		// let RutineCheck = setInterval(this.updateInfo, 10000);
 	}
 	
 	render () {
@@ -57,6 +60,10 @@ class App extends Component {
 							current={this.state.current}
 							update={this.updateInfo} />
 				<Users users={this.state.users} />
+				
+				<br />
+				
+				<Live />
 			</div>
 		);
 	}
